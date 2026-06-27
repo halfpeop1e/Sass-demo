@@ -1,0 +1,122 @@
+.pageTitle {
+  margin-bottom: 16px;
+}
+
+.sectionRow {
+  margin-top: 16px;
+}
+
+.metricValue {
+  font-size: 20px;
+}
+
+.fourLayerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.layerCard {
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.accessLayer {
+  border: 2px solid #1890ff;
+  background: #e6f7ff;
+}
+
+.businessLayer {
+  border: 2px solid #52c41a;
+  background: #f6ffed;
+}
+
+.platformLayer {
+  border: 2px solid #faad14;
+  background: #fffbe6;
+}
+
+.infraLayer {
+  border: 2px solid #722ed1;
+  background: #f9f0ff;
+}
+
+.layerTags {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.arrowDivider {
+  text-align: center;
+  color: #999;
+}
+
+.serviceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.serviceName {
+  flex: 1;
+  font-size: 13px;
+}
+
+.serviceMeta {
+  font-size: 12px;
+}
+
+.tierCard {
+  text-align: center;
+}
+
+.tierCardStarter {
+  background: #f6ffed;
+}
+
+.tierCardPro {
+  background: #fffbe6;
+}
+
+.tierCardEnterprise {
+  background: #e6f7ff;
+}
+
+.tierValue {
+  font-size: 28px;
+}
+
+.tierSubText {
+  font-size: 11px;
+}
+
+.storageProgress {
+  margin-top: 12px;
+}
+
+.storageProgressBar {
+  margin-top: 8px;
+}
+
+.alertCard {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.alertMessage {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.alertTime {
+  font-size: 11px;
+}
+
+.categoryLabel {
+  margin-bottom: 12px;
+}

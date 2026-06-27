@@ -1,0 +1,58 @@
+.pageAlert {
+  margin-bottom: 16px;
+}
+
+.statsRow {
+  margin-bottom: 16px;
+}
+
+.isolationCard {
+  margin-bottom: 16px;
+}
+
+.filterSelect {
+  width: 120px;
+}
+
+.tierCard {
+  text-align: center;
+}
+
+.tierCardStarter {
+  background: #f6ffed;
+}
+
+.tierCardPro {
+  background: #fffbe6;
+}
+
+.tierCardEnterprise {
+  background: #e6f7ff;
+}
+
+.tierIcon {
+  font-size: 32px;
+}
+
+.tierTitle {
+  margin-top: 8px;
+}
+
+.tierTags {
+  margin-top: 8px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.tierAlert {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+.detailAlert {
+  margin-top: 16px;
+}
+
+.stepsStyle {
+  margin-top: 8px;
+}

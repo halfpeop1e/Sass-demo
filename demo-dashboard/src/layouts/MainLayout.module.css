@@ -1,0 +1,87 @@
+.layoutFull {
+  min-height: 100vh;
+}
+
+.sider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.logoContainer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 16px;
+}
+
+.logoSpace {
+  text-align: center;
+}
+
+.logoTitle {
+  color: #fff;
+  font-size: 16px;
+}
+
+.logoSubtitle {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+}
+
+.logoIcon {
+  color: #fff;
+  font-size: 24px;
+}
+
+.menuMargin {
+  margin-top: 8px;
+}
+
+.mainLayout {
+  transition: margin-left 0.2s;
+}
+
+.header {
+  padding: 0 24px;
+  background: #001529;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.headerIcon {
+  color: #52c41a;
+  font-size: 18px;
+}
+
+.headerTitle {
+  color: #fff;
+  font-size: 16px;
+}
+
+.headerStatusText {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.headerSlaText {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.headerAvatar {
+  background-color: #1890ff;
+}
+
+.content {
+  margin: 16px;
+  min-height: 280px;
+}

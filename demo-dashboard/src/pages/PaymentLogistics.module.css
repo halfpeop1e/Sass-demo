@@ -1,0 +1,29 @@
+.stepsContainer {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.pageAlert {
+  margin-bottom: 16px;
+}
+
+.sectionRow {
+  margin-top: 16px;
+}
+
+.channelSelect {
+  width: 150px;
+}
+
+.alertMt12 {
+  margin-top: 12px;
+}
+
+.alertMt4 {
+  margin-top: 4px;
+}
+
+.progressWrapper {
+  width: 60px;
+}

@@ -1,0 +1,51 @@
+.sliderWrap {
+  margin-bottom: 16px;
+}
+
+.disasterRow {
+  margin-top: 16px;
+}
+
+.rtpoRow {
+  margin-top: 16px;
+}
+
+.containerBg {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.disasterModeBar {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.syncBar {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.scalingCardGreen {
+  background: #f6ffed;
+}
+
+.scalingCardBlue {
+  background: #e6f7ff;
+}
+
+.switchMargin {
+  margin-left: 12px;
+}
+
+.alertFont {
+  font-size: 11px;
+}
+
+.statValue {
+  color: #52c41a;
+}
+
+.statValueBlue {
+  color: #1890ff;
+}

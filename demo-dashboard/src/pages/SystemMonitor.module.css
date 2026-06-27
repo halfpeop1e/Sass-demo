@@ -1,0 +1,62 @@
+.miniChartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.miniChartValue {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.miniChartSuffix {
+  font-size: 12px;
+  color: #999;
+}
+
+.miniChartTimeLabel {
+  font-size: 11px;
+}
+
+.chartBarsContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 50px;
+  margin-top: 4px;
+}
+
+.chartBar {
+  flex: 1;
+  border-radius: 2px 2px 0 0;
+  opacity: 0.85;
+  min-height: 3px;
+}
+
+.overviewCard {
+  text-align: center;
+}
+
+.refreshBtn {
+  margin-left: 16px;
+}
+
+.refreshTag {
+  margin-left: 8px;
+}
+
+.techStackRow {
+  margin-top: 16px;
+}
+
+.loggingCard {
+  background: #f6ffed;
+}
+
+.metricsCard {
+  background: #e6f7ff;
+}
+
+.tracingCard {
+  background: #fffbe6;
+}

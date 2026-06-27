@@ -1,0 +1,41 @@
+# ===========================================
+#  Cross-Border SaaS Platform — .gitignore
+# ===========================================
+
+# —— Node ——
+node_modules/
+dist/
+.vite/
+
+# —— Go ——
+*.exe
+*.test
+*.out
+/tmp/
+
+# Go compiled binaries in project directories
+demo-backend/*/api-gateway
+demo-backend/*/*-service
+
+# —— IDE ——
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# —— OS ——
+.DS_Store
+Thumbs.db
+
+# —— Environment ——
+.env
+.env.local
+.env.*.local
+
+# —— Logs ——
+*.log
+npm-debug.log*
+
+# —— Misc ——
+*.tmp

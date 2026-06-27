@@ -1,0 +1,80 @@
+.topoContainer {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.gatewayNode {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.gatewayBox {
+  display: inline-block;
+  border: 2px solid #1890ff;
+  border-radius: 12px;
+  padding: 10px 24px;
+  background: #e6f7ff;
+}
+
+.gatewayIcon {
+  color: #1890ff;
+  font-size: 20px;
+}
+
+.gatewayTitle {
+  margin-left: 8px;
+  color: #1890ff;
+}
+
+.gatewaySub {
+  font-size: 11px;
+}
+
+.routeDivider {
+  text-align: center;
+  color: #999;
+  margin: 8px 0;
+}
+
+.serviceGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.kafkaEventBus {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.kafkaBox {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+}
+
+.kafkaLabel {
+  color: #faad14;
+}
+
+.kafkaTopics {
+  font-size: 11px;
+}
+
+.sectionRowTop {
+  margin-top: 16px;
+}
+
+.placeholderCenter {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+.placeholderIcon {
+  font-size: 48px;
+}
