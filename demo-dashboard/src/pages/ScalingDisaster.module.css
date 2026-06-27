@@ -1,37 +1,42 @@
 .sliderWrap {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .disasterRow {
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .rtpoRow {
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .containerBg {
-  padding: 16px;
-  background: #fafafa;
-  border-radius: 8px;
+  padding: 18px;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.06);
 }
 
 .disasterModeBar {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .syncBar {
   text-align: center;
-  margin: 12px 0;
+  margin: 16px 0;
 }
 
 .scalingCardGreen {
-  background: #f6ffed;
+  background: rgba(52, 211, 153, 0.06);
+  border: 1px solid rgba(52, 211, 153, 0.12);
+  border-radius: 12px;
 }
 
 .scalingCardBlue {
-  background: #e6f7ff;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 12px;
 }
 
 .switchMargin {
@@ -43,9 +48,29 @@
 }
 
 .statValue {
-  color: #52c41a;
+  color: #34d399;
 }
 
 .statValueBlue {
-  color: #1890ff;
+  color: #38bdf8;
+}
+
+.regionCard {
+  border-radius: 12px;
+  transition: all var(--transition-base);
+}
+
+.regionCardPrimary {
+  border: 2px solid rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.06);
+}
+
+.regionCardDisaster {
+  border: 2px solid rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.06);
+}
+
+.regionCardFailed {
+  border: 2px solid rgba(248, 113, 113, 0.3);
+  background: rgba(248, 113, 113, 0.06);
 }

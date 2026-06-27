@@ -1,15 +1,16 @@
 .stepsContainer {
-  padding: 16px;
-  background: #fafafa;
-  border-radius: 8px;
+  padding: 18px;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.06);
 }
 
 .pageAlert {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .sectionRow {
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .channelSelect {
@@ -26,4 +27,19 @@
 
 .progressWrapper {
   width: 60px;
+}
+
+.paymentTabs :global(.ant-tabs-nav) {
+  margin-bottom: 20px;
+}
+
+.paymentTabs :global(.ant-tabs-tab) {
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+.cardDark {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.06);
+  border-radius: 12px;
 }

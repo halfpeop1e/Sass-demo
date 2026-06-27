@@ -1,13 +1,13 @@
 .pageAlert {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .statsRow {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .isolationCard {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .filterSelect {
@@ -16,36 +16,52 @@
 
 .tierCard {
   text-align: center;
+  border-radius: 12px;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  min-height: 240px;
+}
+.tierCard:hover {
+  transform: translateY(-2px);
 }
 
 .tierCardStarter {
-  background: #f6ffed;
+  background: rgba(52, 211, 153, 0.06);
+  border: 1px solid rgba(52, 211, 153, 0.12);
 }
 
 .tierCardPro {
-  background: #fffbe6;
+  background: rgba(251, 191, 36, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.12);
 }
 
 .tierCardEnterprise {
-  background: #e6f7ff;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.12);
 }
 
 .tierIcon {
-  font-size: 32px;
+  font-size: 36px;
+  margin-bottom: 4px;
 }
 
 .tierTitle {
   margin-top: 8px;
+  font-family: var(--font-heading);
 }
 
 .tierTags {
-  margin-top: 8px;
+  margin-top: 10px;
   text-align: left;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .tierAlert {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 11px;
 }
 

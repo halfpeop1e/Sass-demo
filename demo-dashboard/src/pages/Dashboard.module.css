@@ -10,39 +10,53 @@
   font-size: 20px;
 }
 
+.statusBar {
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+
 .fourLayerContainer {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .layerCard {
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 12px;
+  padding: 16px;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+.layerCard:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .accessLayer {
-  border: 2px solid #1890ff;
-  background: #e6f7ff;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.06);
 }
 
 .businessLayer {
-  border: 2px solid #52c41a;
-  background: #f6ffed;
+  border: 1.5px solid rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.06);
 }
 
 .platformLayer {
-  border: 2px solid #faad14;
-  background: #fffbe6;
+  border: 1.5px solid rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.06);
 }
 
 .infraLayer {
-  border: 2px solid #722ed1;
-  background: #f9f0ff;
+  border: 1.5px solid rgba(167, 139, 250, 0.3);
+  background: rgba(167, 139, 250, 0.06);
 }
 
 .layerTags {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
@@ -50,7 +64,9 @@
 
 .arrowDivider {
   text-align: center;
-  color: #999;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .serviceRow {
@@ -58,6 +74,12 @@
   align-items: center;
   gap: 8px;
   margin: 4px 0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  transition: background var(--transition-fast);
+}
+.serviceRow:hover {
+  background: rgba(56, 189, 248, 0.05);
 }
 
 .serviceName {
@@ -71,18 +93,22 @@
 
 .tierCard {
   text-align: center;
+  border-radius: 12px;
 }
 
 .tierCardStarter {
-  background: #f6ffed;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.15);
 }
 
 .tierCardPro {
-  background: #fffbe6;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.15);
 }
 
 .tierCardEnterprise {
-  background: #e6f7ff;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.15);
 }
 
 .tierValue {
@@ -102,15 +128,35 @@
 }
 
 .alertCard {
-  padding: 8px 12px;
+  padding: 10px 14px;
   margin-bottom: 8px;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: transform var(--transition-fast);
+}
+.alertCard:hover {
+  transform: translateX(4px);
+}
+
+.alertCritical {
+  background: rgba(248, 113, 113, 0.08);
+  border-left: 3px solid #f87171;
+}
+
+.alertImportant {
+  background: rgba(251, 191, 36, 0.08);
+  border-left: 3px solid #fbbf24;
+}
+
+.alertNormal {
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 3px solid #38bdf8;
 }
 
 .alertMessage {
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-top: 4px;
+  line-height: 1.5;
 }
 
 .alertTime {
@@ -119,4 +165,10 @@
 
 .categoryLabel {
   margin-bottom: 12px;
+}
+
+.timelineCard {
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  border-radius: 12px;
 }

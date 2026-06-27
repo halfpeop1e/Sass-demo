@@ -75,21 +75,25 @@ export default function MainLayout() {
         collapsed={collapsed}
         onCollapse={setCollapsed}
         theme="dark"
-        width={220}
+        width={232}
         className={styles.sider}
       >
         <div className={styles.logoContainer}>
-          {!collapsed && (
-            <Space vertical size={0} className={styles.logoSpace}>
-              <Text strong className={styles.logoTitle}>
-                <GlobalOutlined /> 跨境SaaS平台
-              </Text>
-              <Text className={styles.logoSubtitle}>
-                大型平台设计 Demo
-              </Text>
-            </Space>
+          {!collapsed ? (
+            <div className={styles.logo}>
+              <div className={styles.logoIconBox}>
+                <GlobalOutlined className={styles.logoIconSvg} />
+              </div>
+              <div className={styles.logoText}>
+                <Text strong className={styles.logoTitle}>跨境 SaaS</Text>
+                <Text className={styles.logoSubtitle}>Global Commerce Platform</Text>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.logoIconBox}>
+              <GlobalOutlined className={styles.logoIconSvg} />
+            </div>
           )}
-          {collapsed && <GlobalOutlined className={styles.logoIcon} />}
         </div>
         <Menu
           theme="dark"
@@ -97,28 +101,33 @@ export default function MainLayout() {
           selectedKeys={[getSelectedKey()]}
           items={menuItems}
           onClick={({ key }) => navigate(key)}
-          className={styles.menuMargin}
+          className={styles.menu}
         />
+        <div className={styles.siderFooter}>
+          {!collapsed && (
+            <div className={styles.siderFooterContent}>
+              <div className={styles.siderFooterDot} />
+              <Text className={styles.siderFooterText}>V2 · 全球化智能平台</Text>
+            </div>
+          )}
+        </div>
       </Sider>
 
-      <Layout className={styles.mainLayout} style={{ marginLeft: collapsed ? 80 : 220 }}>
+      <Layout className={styles.mainLayout} style={{ marginLeft: collapsed ? 80 : 232 }}>
         <Header className={styles.header}>
-          <Space>
+          <div className={styles.headerLeft}>
             <ThunderboltOutlined className={styles.headerIcon} />
             <Text strong className={styles.headerTitle}>
-              跨境电商独立站 SaaS 服务平台 · 运营管理后台
+              运营管理后台
             </Text>
-          </Space>
-          <Space size="middle">
-            <Tag color="green" icon={<ClusterOutlined />}>
-              V2 阶段 | 全球化 + 智能化
-            </Tag>
-            <Badge status="processing" text={<Text className={styles.headerStatusText}>系统运行中</Text>} />
-            <Badge status="success" text={<Text className={styles.headerSlaText}>SLA 99.99%</Text>} />
+            <Tag className={styles.headerTag}>V2 阶段 · 全球化+智能化</Tag>
+          </div>
+          <div className={styles.headerRight}>
+            <Badge status="processing" className={styles.headerBadge} text={<span className={styles.headerBadgeText}>系统运行中</span>} />
+            <Tag className={styles.headerSlaTag}>SLA 99.99%</Tag>
             <Avatar className={styles.headerAvatar} icon={<TeamOutlined />} />
-          </Space>
+          </div>
         </Header>
-
         <Content className={styles.content}>
           <Outlet />
         </Content>

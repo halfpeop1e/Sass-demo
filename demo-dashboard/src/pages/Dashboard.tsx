@@ -22,26 +22,27 @@ import {
   tenantList,
 } from '../data/mockData';
 import { adminApi } from '../api/adminApi';
+import styles from './Dashboard.module.css';
 
 const { Text, Title } = Typography;
 
 const categoryColorMap: Record<string, string> = {
-  '接入层': '#1890ff',
-  '核心业务': '#52c41a',
-  '平台能力': '#faad14',
-  '基础设施': '#722ed1',
+  '接入层': '#38bdf8',
+  '核心业务': '#34d399',
+  '平台能力': '#fbbf24',
+  '基础设施': '#a78bfa',
 };
 
 const statusColorMap: Record<string, string> = {
-  'healthy': '#52c41a',
-  'degraded': '#faad14',
-  'down': '#ff4d4f',
+  'healthy': '#34d399',
+  'degraded': '#fbbf24',
+  'down': '#f87171',
 };
 
 const alertLevelColor: Record<string, string> = {
-  'P0-紧急': '#ff4d4f',
-  'P1-重要': '#faad14',
-  'P2-普通': '#1890ff',
+  'P0-紧急': '#f87171',
+  'P1-重要': '#fbbf24',
+  'P2-普通': '#38bdf8',
 };
 
 function ServiceStatusBadge({ name }: { name: string }) {
@@ -87,11 +88,10 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>
+      <Title level={4} className={styles.pageTitle}>
         <RadarChartOutlined /> 平台运行总览
       </Title>
 
-      {/* 后端连接状态 */}
       <Row gutter={[16, 16]} style={{ marginBottom: 16 }}>
         <Col span={24}>
           <Card size="small" styles={{ body: { padding: '8px 16px' } }}>
@@ -105,7 +105,6 @@ export default function Dashboard() {
         </Col>
       </Row>
 
-      {/* 核心指标卡片 */}
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} md={6}>
           <Card size="small">
@@ -114,9 +113,9 @@ export default function Dashboard() {
               value={Math.round(metrics.totalQps)}
               prefix={<ThunderboltOutlined />}
               suffix="req/s"
-              valueStyle={{ color: '#1890ff' }}
+              valueStyle={{ color: '#38bdf8' }}
             />
-            <Progress percent={Math.round(metrics.totalQps / 10000 * 100)} size="small" strokeColor="#1890ff" showInfo={false} />
+            <Progress percent={Math.round(metrics.totalQps / 10000 * 100)} size="small" strokeColor="#38bdf8" showInfo={false} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
@@ -127,7 +126,7 @@ export default function Dashboard() {
               prefix={<TeamOutlined />}
               suffix={`/ ${totalTenants}`}
             />
-            <Progress percent={activeTenants / totalTenants * 100} size="small" strokeColor="#52c41a" showInfo={false} />
+            <Progress percent={activeTenants / totalTenants * 100} size="small" strokeColor="#34d399" showInfo={false} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
@@ -137,9 +136,9 @@ export default function Dashboard() {
               value={healthyServices}
               prefix={<CheckCircleOutlined />}
               suffix={`/ ${totalServices}`}
-              valueStyle={{ color: healthyServices === totalServices ? '#52c41a' : '#faad14' }}
+              valueStyle={{ color: healthyServices === totalServices ? '#34d399' : '#fbbf24' }}
             />
-            <Progress percent={healthyServices / totalServices * 100} size="small" strokeColor="#52c41a" showInfo={false} />
+            <Progress percent={healthyServices / totalServices * 100} size="small" strokeColor="#34d399" showInfo={false} />
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
@@ -150,15 +149,14 @@ export default function Dashboard() {
               precision={2}
               prefix={metrics.paymentSuccessRate > 98 ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
               suffix="%"
-              valueStyle={{ color: metrics.paymentSuccessRate > 98 ? '#52c41a' : '#faad14' }}
+              valueStyle={{ color: metrics.paymentSuccessRate > 98 ? '#34d399' : '#fbbf24' }}
             />
-            <Progress percent={metrics.paymentSuccessRate} size="small" strokeColor="#52c41a" showInfo={false} />
+            <Progress percent={metrics.paymentSuccessRate} size="small" strokeColor="#34d399" showInfo={false} />
           </Card>
         </Col>
       </Row>
 
-      {/* 更多指标 */}
-      <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+      <Row gutter={[16, 16]} className={styles.sectionRow}>
         <Col xs={12} sm={8} md={4}>
           <Card size="small"><Statistic title="P99延迟" value={Math.round(metrics.avgP99Latency)} suffix="ms" valueStyle={{ fontSize: 20 }} /></Card>
         </Col>
@@ -169,7 +167,7 @@ export default function Dashboard() {
           <Card size="small"><Statistic title="内存利用率" value={Math.round(metrics.memoryUtilization)} suffix="%" valueStyle={{ fontSize: 20 }} /></Card>
         </Col>
         <Col xs={12} sm={8} md={4}>
-          <Card size="small"><Statistic title="Redis命中率" value={metrics.redisHitRate} precision={1} suffix="%" valueStyle={{ fontSize: 20, color: '#52c41a' }} /></Card>
+          <Card size="small"><Statistic title="Redis命中率" value={metrics.redisHitRate} precision={1} suffix="%" valueStyle={{ fontSize: 20, color: '#34d399' }} /></Card>
         </Col>
         <Col xs={12} sm={8} md={4}>
           <Card size="small"><Statistic title="Kafka吞吐" value={Math.round(metrics.kafkaThroughput)} suffix="msg/s" valueStyle={{ fontSize: 20 }} /></Card>
@@ -179,18 +177,16 @@ export default function Dashboard() {
         </Col>
       </Row>
 
-      {/* 四层架构图 + 服务健康 */}
-      <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+      <Row gutter={[16, 16]} className={styles.sectionRow}>
         <Col xs={24} lg={14}>
           <Card title={<><GlobalOutlined /> 四层架构：控制面与数据面物理隔离</>} size="small">
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {/* 接入层 */}
-              <div style={{ border: '2px solid #1890ff', borderRadius: 8, padding: 12, background: '#e6f7ff' }}>
+            <div className={styles.fourLayerContainer}>
+              <div className={`${styles.layerCard} ${styles.accessLayer}`}>
                 <Space>
                   <Tag color="blue" icon={<GlobalOutlined />}>接入层 Access Layer</Tag>
                   <Text type="secondary">GeoDNS · CDN边缘加速 · WAF防护 · API Gateway (Kong/APISIX)</Text>
                 </Space>
-                <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <div className={styles.layerTags}>
                   <Tag color="blue">HTTPS终结</Tag>
                   <Tag color="blue">OAuth2/JWT鉴权</Tag>
                   <Tag color="blue">租户域名解析</Tag>
@@ -200,14 +196,13 @@ export default function Dashboard() {
                   <Tag color="blue">协议转换(gRPC/REST)</Tag>
                 </div>
               </div>
-              <div style={{ textAlign: 'center', color: '#999' }}>⬇️ 经鉴权与租户标识注入后路由 ⬇️</div>
-              {/* 业务层 */}
-              <div style={{ border: '2px solid #52c41a', borderRadius: 8, padding: 12, background: '#f6ffed' }}>
+              <div className={styles.arrowDivider}>⬇️ 经鉴权与租户标识注入后路由 ⬇️</div>
+              <div className={`${styles.layerCard} ${styles.businessLayer}`}>
                 <Space>
                   <Tag color="green" icon={<ApiOutlined />}>业务层 Business Layer</Tag>
                   <Text type="secondary">自治微服务集群 · 独立Schema · gRPC/Kafka通信</Text>
                 </Space>
-                <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <div className={styles.layerTags}>
                   {byCategory['核心业务']?.map(s => (
                     <Tooltip key={s.name} title={`${s.qps} QPS | P99: ${s.p99Latency}ms | ${s.replicas}副本`}>
                       <Tag color={statusColorMap[s.status]} style={{ cursor: 'pointer' }}>
@@ -217,14 +212,13 @@ export default function Dashboard() {
                   ))}
                 </div>
               </div>
-              <div style={{ textAlign: 'center', color: '#999' }}>⬇️ 标准SDK与中间件调用 ⬇️</div>
-              {/* 平台能力层 */}
-              <div style={{ border: '2px solid #faad14', borderRadius: 8, padding: 12, background: '#fffbe6' }}>
+              <div className={styles.arrowDivider}>⬇️ 标准SDK与中间件调用 ⬇️</div>
+              <div className={`${styles.layerCard} ${styles.platformLayer}`}>
                 <Space>
                   <Tag color="gold" icon={<NodeIndexOutlined />}>平台能力层 Platform Capability Layer</Tag>
                   <Text type="secondary">可复用技术组件 · 跨境业务中间件 · TIRE引擎</Text>
                 </Space>
-                <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <div className={styles.layerTags}>
                   <Tag color="orange">TIRE多租户引擎</Tag>
                   <Tag color="orange">统一支付路由</Tag>
                   <Tag color="orange">统一物流适配</Tag>
@@ -234,14 +228,13 @@ export default function Dashboard() {
                   <Tag color="orange">对象存储 S3/OSS</Tag>
                 </div>
               </div>
-              <div style={{ textAlign: 'center', color: '#999' }}>⬇️ 标准化PV/PVC·Service/DNS·ConfigMap/Secret ⬇️</div>
-              {/* 基础设施层 */}
-              <div style={{ border: '2px solid #722ed1', borderRadius: 8, padding: 12, background: '#f9f0ff' }}>
+              <div className={styles.arrowDivider}>⬇️ 标准化PV/PVC·Service/DNS·ConfigMap/Secret ⬇️</div>
+              <div className={`${styles.layerCard} ${styles.infraLayer}`}>
                 <Space>
                   <Tag color="purple" icon={<CloudServerOutlined />}>基础设施层 Infrastructure Layer</Tag>
                   <Text type="secondary">K8s集群 · MySQL分库分表 · Redis Cluster · 可观测性体系</Text>
                 </Space>
-                <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <div className={styles.layerTags}>
                   <Tag color="purple">K8s (HPA/VPA)</Tag>
                   <Tag color="purple">MySQL (ShardingSphere)</Tag>
                   <Tag color="purple">Redis Sentinel</Tag>
@@ -259,13 +252,13 @@ export default function Dashboard() {
         <Col xs={24} lg={10}>
           <Card title={<><SafetyCertificateOutlined /> 服务健康状态</>} size="small">
             {Object.entries(byCategory).map(([cat, services]) => (
-              <div key={cat} style={{ marginBottom: 12 }}>
+              <div key={cat} className={styles.categoryLabel}>
                 <Text strong style={{ color: categoryColorMap[cat] }}>{cat}</Text>
                 {services.map(s => (
-                  <div key={s.name} style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '4px 0' }}>
+                  <div key={s.name} className={styles.serviceRow}>
                     <Badge status={s.status === 'healthy' ? 'success' : s.status === 'degraded' ? 'warning' : 'error'} />
-                    <Text style={{ flex: 1, fontSize: 13 }}>{s.name}</Text>
-                    <Text type="secondary" style={{ fontSize: 12 }}>
+                    <Text className={styles.serviceName}>{s.name}</Text>
+                    <Text type="secondary" className={styles.serviceMeta}>
                       {s.replicas}副本 | P99:{s.p99Latency}ms | {s.qps}QPS
                     </Text>
                   </div>
@@ -276,36 +269,35 @@ export default function Dashboard() {
         </Col>
       </Row>
 
-      {/* 租户分布 + 告警 */}
-      <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+      <Row gutter={[16, 16]} className={styles.sectionRow}>
         <Col xs={24} md={12}>
           <Card title={<><TeamOutlined /> 租户套餐分布与隔离策略</>} size="small">
             <Row gutter={16}>
               <Col span={8}>
-                <Card size="small" style={{ background: '#f6ffed', textAlign: 'center' }}>
-                  <Statistic title="Starter" value={tierDistribution.Starter} suffix="户" valueStyle={{ color: '#52c41a', fontSize: 28 }} />
-                  <Text type="secondary" style={{ fontSize: 11 }}>共享表 | 100 QPS</Text>
+                <Card size="small" className={`${styles.tierCard} ${styles.tierCardStarter}`}>
+                  <Statistic title="Starter" value={tierDistribution.Starter} suffix="户" valueStyle={{ color: '#34d399', fontSize: 28 }} />
+                  <Text type="secondary" className={styles.tierSubText}>共享表 | 100 QPS</Text>
                 </Card>
               </Col>
               <Col span={8}>
-                <Card size="small" style={{ background: '#fffbe6', textAlign: 'center' }}>
-                  <Statistic title="Pro" value={tierDistribution.Pro} suffix="户" valueStyle={{ color: '#faad14', fontSize: 28 }} />
-                  <Text type="secondary" style={{ fontSize: 11 }}>独立Schema | 500 QPS</Text>
+                <Card size="small" className={`${styles.tierCard} ${styles.tierCardPro}`}>
+                  <Statistic title="Pro" value={tierDistribution.Pro} suffix="户" valueStyle={{ color: '#fbbf24', fontSize: 28 }} />
+                  <Text type="secondary" className={styles.tierSubText}>独立Schema | 500 QPS</Text>
                 </Card>
               </Col>
               <Col span={8}>
-                <Card size="small" style={{ background: '#e6f7ff', textAlign: 'center' }}>
-                  <Statistic title="Enterprise" value={tierDistribution.Enterprise} suffix="户" valueStyle={{ color: '#1890ff', fontSize: 28 }} />
-                  <Text type="secondary" style={{ fontSize: 11 }}>独立数据库 | 自定义</Text>
+                <Card size="small" className={`${styles.tierCard} ${styles.tierCardEnterprise}`}>
+                  <Statistic title="Enterprise" value={tierDistribution.Enterprise} suffix="户" valueStyle={{ color: '#38bdf8', fontSize: 28 }} />
+                  <Text type="secondary" className={styles.tierSubText}>独立数据库 | 自定义</Text>
                 </Card>
               </Col>
             </Row>
-            <div style={{ marginTop: 12 }}>
+            <div className={styles.storageProgress}>
               <Text strong>混合存储阶梯模型：</Text>
               <Progress
                 percent={70}
-                success={{ percent: 70, strokeColor: '#52c41a' }}
-                strokeColor="#faad14"
+                success={{ percent: 70, strokeColor: '#34d399' }}
+                strokeColor="#fbbf24"
                 format={() => '70% 共享表 + 20% 独立Schema + 10% 独立库'}
                 style={{ marginTop: 8 }}
               />
@@ -313,21 +305,15 @@ export default function Dashboard() {
           </Card>
         </Col>
         <Col xs={24} md={12}>
-          <Card title={<><FireOutlined style={{ color: '#ff4d4f' }} /> 实时告警</>} size="small">
+          <Card title={<><FireOutlined style={{ color: '#f87171' }} /> 实时告警</>} size="small">
             {alertList.filter(a => a.status !== 'resolved').map(alert => (
-              <div key={alert.id} style={{
-                padding: '8px 12px',
-                marginBottom: 8,
-                borderRadius: 6,
-                borderLeft: `4px solid ${alertLevelColor[alert.level]}`,
-                background: alert.level === 'P0-紧急' ? '#fff1f0' : alert.level === 'P1-重要' ? '#fffbe6' : '#f0f5ff',
-              }}>
+              <div key={alert.id} className={`${styles.alertCard} ${alert.level === 'P0-紧急' ? styles.alertCritical : alert.level === 'P1-重要' ? styles.alertImportant : styles.alertNormal}`}>
                 <Space>
                   <Tag color={alertLevelColor[alert.level]} style={{ margin: 0 }}>{alert.level}</Tag>
                   <Text strong style={{ fontSize: 13 }}>{alert.service}</Text>
                 </Space>
-                <div style={{ fontSize: 12, color: '#666', marginTop: 4 }}>{alert.message}</div>
-                <Text type="secondary" style={{ fontSize: 11 }}>{alert.timestamp}</Text>
+                <div className={styles.alertMessage}>{alert.message}</div>
+                <Text type="secondary" className={styles.alertTime}>{alert.timestamp}</Text>
               </div>
             ))}
             {alertList.filter(a => a.status !== 'resolved').length === 0 && (
@@ -337,8 +323,7 @@ export default function Dashboard() {
         </Col>
       </Row>
 
-      {/* 关键流程 */}
-      <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+      <Row gutter={[16, 16]} className={styles.sectionRow}>
         <Col span={24}>
           <Card title={<><ShoppingCartOutlined /> 核心交易链路：买家下单全流程</>} size="small">
             <Timeline
